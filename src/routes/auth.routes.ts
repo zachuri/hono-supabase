@@ -10,23 +10,6 @@ import { endTime, startTime } from "hono/timing";
 import { z } from "zod";
 import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
 
-const basicRoute = createRoute({
-	method: "get",
-	path: "/basic/",
-	responses: {
-		200: {
-			content: {
-				"application/json": {
-					schema: z.object({
-						hello: z.string(),
-					}),
-				},
-			},
-			description: "say hello",
-		},
-	},
-});
-
 const authRoutes = new OpenAPIHono()
 	.post(
 		"/sign-up",
